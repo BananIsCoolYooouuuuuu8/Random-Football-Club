@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="laligaButtonColour">#DEC20D</color>
+    <color name="premierLeagueButtonColour">#409CF6</color>
+    <color name="bundesligaButtonColour">#DE0D0D</color>
+    <color name="ligue1ButtonColour">#1D5680</color>
+    <color name="seriaAButtonColour">#0DDEB4</color>
+</resources>
