@@ -152,7 +152,7 @@
             android:layout_gravity="center"
             android:text="club"
             android:textSize="40sp"
-            android:visibility="visible"
+            android:visibility="gone"
             android:id="@+id/clubNameID"
             android:layout_marginBottom="80dp"/>
 
@@ -161,7 +161,7 @@
             android:layout_height="300dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_launcher_foreground"
-            android:visibility="visible"
+            android:visibility="gone"
             android:id="@+id/clubImageID" />
 
     </LinearLayout>

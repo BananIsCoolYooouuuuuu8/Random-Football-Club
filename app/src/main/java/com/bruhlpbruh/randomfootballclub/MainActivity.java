@@ -20,8 +20,6 @@ import java.util.function.Consumer;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonRestart = findViewById(R.id.buttonRestart);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button buttonRestart = findViewById(R.id.buttonRestart);
         TextView textViewChooseTheClub = findViewById(R.id.chooseTheLeagueID);
         LinearLayout linearLayoutPremierLeague = findViewById(R.id.premierLeagueID);
         LinearLayout linearLayoutLaliga = findViewById(R.id.laligaID);
@@ -71,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 imageViewClub.setVisibility(View.VISIBLE);
                 textViewClubName.setText(club.getNameClub());
                 textViewClubName.setVisibility(View.VISIBLE);
+                buttonRestart.setVisibility(View.VISIBLE);
             }
         });
         linearLayoutBundesliga.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 imageViewClub.setVisibility(View.VISIBLE);
                 textViewClubName.setText(club.getNameClub());
                 textViewClubName.setVisibility(View.VISIBLE);
+                buttonRestart.setVisibility(View.VISIBLE);
             }
         });
         linearLayoutLigue1.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 imageViewClub.setVisibility(View.VISIBLE);
                 textViewClubName.setText(club.getNameClub());
                 textViewClubName.setVisibility(View.VISIBLE);
+                buttonRestart.setVisibility(View.VISIBLE);
             }
         });
         linearLayoutSeriaA.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 imageViewClub.setVisibility(View.VISIBLE);
                 textViewClubName.setText(club.getNameClub());
                 textViewClubName.setVisibility(View.VISIBLE);
+                buttonRestart.setVisibility(View.VISIBLE);
             }
         });
         buttonRestart.setOnClickListener(new View.OnClickListener() {
@@ -137,15 +140,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public Club getRandomPremierLeagueClub() {
-        Club liverpool = new Club();
-        liverpool.setNameClub("Liverpool");
-        liverpool.setLogoClub(R.drawable.liverpool_logo);
-        Club manchesterCity = new Club();
-        manchesterCity.setNameClub("Manchester city");
-        manchesterCity.setLogoClub(R.drawable.manchester_city_logo);
-        Club arsenal = new Club();
-        arsenal.setNameClub("Arsenal");
-        arsenal.setLogoClub(R.drawable.arsenal_logo);
+        Club liverpool = new Club(R.drawable.liverpool_logo, "Liverpool");
+        Club manchesterCity = new Club(R.drawable.manchester_city_logo, "Manchester city");
+        Club arsenal = new Club(R.drawable.arsenal_logo, "Arsenal");
         List<Club> clubs = new ArrayList<>();
         clubs.add(liverpool);
         clubs.add(manchesterCity);
@@ -156,15 +153,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Club getRandomLaligaClub() {
-        Club barcelona = new Club();
-        barcelona.setNameClub("Barcelona");
-        barcelona.setLogoClub(R.drawable.barcelona_logo);
-        Club realMadrid = new Club();
-        realMadrid.setNameClub("Real Madrid");
-        realMadrid.setLogoClub(R.drawable.real_madrid_logo);
-        Club realBetis = new Club();
-        realBetis.setNameClub("Real Betis");
-        realBetis.setLogoClub(R.drawable.real_betis_logo);
+        Club barcelona = new Club(R.drawable.barcelona_logo, "Barcelona");
+        Club realMadrid = new Club(R.drawable.real_madrid_logo, "Real Madrid");
+        Club realBetis = new Club(R.drawable.real_betis_logo, "Real Betis");
         List<Club> clubs = new ArrayList<>();
         clubs.add(barcelona);
         clubs.add(realMadrid);
@@ -175,15 +166,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Club getRandomBundesligaClub() {
-        Club bayernMunchen = new Club();
-        bayernMunchen.setNameClub("Bayern Munchen");
-        bayernMunchen.setLogoClub(R.drawable.bayern_munchen_logo);
-        Club borussiaDortmund = new Club();
-        borussiaDortmund.setNameClub("Borussia Dortmund");
-        borussiaDortmund.setLogoClub(R.drawable.borussia_dortmund_logo);
-        Club bayer = new Club();
-        bayer.setNameClub("Bayer");
-        bayer.setLogoClub(R.drawable.bayer_logo);
+        Club bayernMunchen = new Club(R.drawable.bayern_munchen_logo, "Bayern Munchen");
+        Club borussiaDortmund = new Club(R.drawable.borussia_dortmund_logo, "Borussia Dortmund");
+        Club bayer = new Club(R.drawable.bayer_logo, "Bayer");
         List<Club> clubs = new ArrayList<>();
         clubs.add(bayernMunchen);
         clubs.add(borussiaDortmund);
@@ -194,15 +179,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Club getRandomLigue1Club() {
-        Club psg = new Club();
-        psg.setNameClub("Paris-Saint-Germain");
-        psg.setLogoClub(R.drawable.psg_logo);
-        Club monaco = new Club();
-        monaco.setNameClub("Monaco");
-        monaco.setLogoClub(R.drawable.monaco_logo);
-        Club lyon = new Club();
-        lyon.setNameClub("Lyon");
-        lyon.setLogoClub(R.drawable.lyon_logo);
+        Club psg = new Club(R.drawable.psg_logo, "Paris-Saint-Germain");
+        Club monaco = new Club(R.drawable.monaco_logo, "Monaco");
+        Club lyon = new Club(R.drawable.lyon_logo, "Lyon");
         List<Club> clubs = new ArrayList<>();
         clubs.add(psg);
         clubs.add(monaco);
@@ -212,15 +191,9 @@ public class MainActivity extends AppCompatActivity {
         return clubs.get(randomIndex);
     }
     public Club getRandomSeriaAClub() {
-        Club milan = new Club();
-        milan.setNameClub("Milan");
-        milan.setLogoClub(R.drawable.milan_logo);
-        Club inter = new Club();
-        inter.setNameClub("Inter");
-        inter.setLogoClub(R.drawable.inter_logo);
-        Club atalanta = new Club();
-        atalanta.setNameClub("Atalanta");
-        atalanta.setLogoClub(R.drawable.atalanta_logo);
+        Club milan = new Club(R.drawable.milan_logo, "Milan");
+        Club inter = new Club(R.drawable.inter_logo, "Inter");
+        Club atalanta = new Club(R.drawable.atalanta_logo, "Atalanta");
         List<Club> clubs = new ArrayList<>();
         clubs.add(milan);
         clubs.add(inter);
