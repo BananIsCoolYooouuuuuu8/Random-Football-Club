@@ -20,6 +20,12 @@ import java.util.function.Consumer;
 
 public class MainActivity extends AppCompatActivity {
 
+    List<Club> premierLeagueClubs = new ArrayList<>();
+    List<Club> laligaClubs = new ArrayList<>();
+    List<Club> bundesligaClubs = new ArrayList<>();
+    List<Club> ligue1Clubs = new ArrayList<>();
+    List<Club> seriaAClubs = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,104 +37,64 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         Button buttonRestart = findViewById(R.id.buttonRestart);
-        TextView textViewChooseTheClub = findViewById(R.id.chooseTheLeagueID);
-        LinearLayout linearLayoutPremierLeague = findViewById(R.id.premierLeagueID);
-        LinearLayout linearLayoutLaliga = findViewById(R.id.laligaID);
-        LinearLayout linearLayoutBundesliga = findViewById(R.id.bundesligaID);
-        LinearLayout linearLayoutLigue1 = findViewById(R.id.ligue1ID);
-        LinearLayout linearLayoutSeriaA = findViewById(R.id.seriaAID);
-        ImageView imageViewClub = findViewById(R.id.clubImageID);
-        TextView textViewClubName = findViewById(R.id.clubNameID);
+        LinearLayout clubAndNameDisplay = findViewById(R.id.clubAndNameDisplay);
+        TextView textViewChooseTheClub = findViewById(R.id.chooseTheLeague);
+        LinearLayout linearLayoutPremierLeague = findViewById(R.id.premierLeague);
+        LinearLayout linearLayoutLaliga = findViewById(R.id.laliga);
+        LinearLayout linearLayoutBundesliga = findViewById(R.id.bundesliga);
+        LinearLayout linearLayoutLigue1 = findViewById(R.id.ligue1);
+        LinearLayout linearLayoutSeriaA = findViewById(R.id.seriaA);
+        ImageView imageViewClub = findViewById(R.id.clubImage);
+        TextView textViewClubName = findViewById(R.id.clubName);
         linearLayoutPremierLeague.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewChooseTheClub.setVisibility(View.GONE);
-                linearLayoutPremierLeague.setVisibility(View.GONE);
-                linearLayoutLaliga.setVisibility(View.GONE);
-                linearLayoutBundesliga.setVisibility(View.GONE);
-                linearLayoutLigue1.setVisibility(View.GONE);
-                linearLayoutSeriaA.setVisibility(View.GONE);
+                leaguesViewHiding(textViewChooseTheClub, linearLayoutPremierLeague, linearLayoutLaliga, linearLayoutBundesliga, linearLayoutLigue1, linearLayoutSeriaA);
                 Club club = getRandomPremierLeagueClub();
-                imageViewClub.setImageResource(club.getLogoClub());
-                imageViewClub.setVisibility(View.VISIBLE);
-                textViewClubName.setText(club.getNameClub());
-                textViewClubName.setVisibility(View.VISIBLE);
-                buttonRestart.setVisibility(View.VISIBLE);
+                setImageAndNameClub(club, imageViewClub, textViewClubName);
+                buttonRestartAndClubDisplaydisclosure(buttonRestart, clubAndNameDisplay);
             }
         });
         linearLayoutLaliga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewChooseTheClub.setVisibility(View.GONE);
-                linearLayoutPremierLeague.setVisibility(View.GONE);
-                linearLayoutLaliga.setVisibility(View.GONE);
-                linearLayoutBundesliga.setVisibility(View.GONE);
-                linearLayoutLigue1.setVisibility(View.GONE);
-                linearLayoutSeriaA.setVisibility(View.GONE);
+                leaguesViewHiding(textViewChooseTheClub, linearLayoutPremierLeague, linearLayoutLaliga, linearLayoutBundesliga, linearLayoutLigue1, linearLayoutSeriaA);
                 Club club = getRandomLaligaClub();
-                imageViewClub.setImageResource(club.getLogoClub());
-                imageViewClub.setVisibility(View.VISIBLE);
-                textViewClubName.setText(club.getNameClub());
-                textViewClubName.setVisibility(View.VISIBLE);
-                buttonRestart.setVisibility(View.VISIBLE);
+                setImageAndNameClub(club, imageViewClub, textViewClubName);
+                buttonRestartAndClubDisplaydisclosure(buttonRestart, clubAndNameDisplay);
             }
         });
         linearLayoutBundesliga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewChooseTheClub.setVisibility(View.GONE);
-                linearLayoutPremierLeague.setVisibility(View.GONE);
-                linearLayoutLaliga.setVisibility(View.GONE);
-                linearLayoutBundesliga.setVisibility(View.GONE);
-                linearLayoutLigue1.setVisibility(View.GONE);
-                linearLayoutSeriaA.setVisibility(View.GONE);
+                leaguesViewHiding(textViewChooseTheClub, linearLayoutPremierLeague, linearLayoutLaliga, linearLayoutBundesliga, linearLayoutLigue1, linearLayoutSeriaA);
                 Club club = getRandomBundesligaClub();
-                imageViewClub.setImageResource(club.getLogoClub());
-                imageViewClub.setVisibility(View.VISIBLE);
-                textViewClubName.setText(club.getNameClub());
-                textViewClubName.setVisibility(View.VISIBLE);
-                buttonRestart.setVisibility(View.VISIBLE);
+                setImageAndNameClub(club, imageViewClub, textViewClubName);
+                buttonRestartAndClubDisplaydisclosure(buttonRestart, clubAndNameDisplay);
             }
         });
         linearLayoutLigue1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewChooseTheClub.setVisibility(View.GONE);
-                linearLayoutPremierLeague.setVisibility(View.GONE);
-                linearLayoutLaliga.setVisibility(View.GONE);
-                linearLayoutBundesliga.setVisibility(View.GONE);
-                linearLayoutLigue1.setVisibility(View.GONE);
-                linearLayoutSeriaA.setVisibility(View.GONE);
+                leaguesViewHiding(textViewChooseTheClub, linearLayoutPremierLeague, linearLayoutLaliga, linearLayoutBundesliga, linearLayoutLigue1, linearLayoutSeriaA);
                 Club club = getRandomLigue1Club();
-                imageViewClub.setImageResource(club.getLogoClub());
-                imageViewClub.setVisibility(View.VISIBLE);
-                textViewClubName.setText(club.getNameClub());
-                textViewClubName.setVisibility(View.VISIBLE);
-                buttonRestart.setVisibility(View.VISIBLE);
+                setImageAndNameClub(club, imageViewClub, textViewClubName);
+                buttonRestartAndClubDisplaydisclosure(buttonRestart, clubAndNameDisplay);
             }
         });
         linearLayoutSeriaA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewChooseTheClub.setVisibility(View.GONE);
-                linearLayoutPremierLeague.setVisibility(View.GONE);
-                linearLayoutLaliga.setVisibility(View.GONE);
-                linearLayoutBundesliga.setVisibility(View.GONE);
-                linearLayoutLigue1.setVisibility(View.GONE);
-                linearLayoutSeriaA.setVisibility(View.GONE);
+                leaguesViewHiding(textViewChooseTheClub, linearLayoutPremierLeague, linearLayoutLaliga, linearLayoutBundesliga, linearLayoutLigue1, linearLayoutSeriaA);
                 Club club = getRandomSeriaAClub();
-                imageViewClub.setImageResource(club.getLogoClub());
-                imageViewClub.setVisibility(View.VISIBLE);
-                textViewClubName.setText(club.getNameClub());
-                textViewClubName.setVisibility(View.VISIBLE);
-                buttonRestart.setVisibility(View.VISIBLE);
+                setImageAndNameClub(club, imageViewClub, textViewClubName);
+                buttonRestartAndClubDisplaydisclosure(buttonRestart, clubAndNameDisplay);
             }
         });
         buttonRestart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imageViewClub.setVisibility(View.GONE);
-                textViewClubName.setVisibility(View.GONE);
+                clubAndNameDisplay.setVisibility(View.GONE);
                 buttonRestart.setVisibility(View.GONE);
                 textViewChooseTheClub.setVisibility(View.VISIBLE);
                 linearLayoutPremierLeague.setVisibility(View.VISIBLE);
@@ -139,67 +105,82 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private static void setImageAndNameClub(Club club, ImageView imageViewClub, TextView textViewClubName) {
+        imageViewClub.setImageResource(club.getLogoClub());
+        textViewClubName.setText(club.getNameClub());
+    }
+
+    private static void buttonRestartAndClubDisplaydisclosure(Button buttonRestart, LinearLayout clubAndNameDisplay) {
+        buttonRestart.setVisibility(View.VISIBLE);
+        clubAndNameDisplay.setVisibility(View.VISIBLE);
+    }
+
+    private static void leaguesViewHiding(TextView textViewChooseTheClub, LinearLayout linearLayoutPremierLeague, LinearLayout linearLayoutLaliga, LinearLayout linearLayoutBundesliga, LinearLayout linearLayoutLigue1, LinearLayout linearLayoutSeriaA) {
+        textViewChooseTheClub.setVisibility(View.GONE);
+        linearLayoutPremierLeague.setVisibility(View.GONE);
+        linearLayoutLaliga.setVisibility(View.GONE);
+        linearLayoutBundesliga.setVisibility(View.GONE);
+        linearLayoutLigue1.setVisibility(View.GONE);
+        linearLayoutSeriaA.setVisibility(View.GONE);
+    }
+
     public Club getRandomPremierLeagueClub() {
         Club liverpool = new Club(R.drawable.liverpool_logo, "Liverpool");
         Club manchesterCity = new Club(R.drawable.manchester_city_logo, "Manchester city");
         Club arsenal = new Club(R.drawable.arsenal_logo, "Arsenal");
-        List<Club> clubs = new ArrayList<>();
-        clubs.add(liverpool);
-        clubs.add(manchesterCity);
-        clubs.add(arsenal);
+        premierLeagueClubs.add(liverpool);
+        premierLeagueClubs.add(manchesterCity);
+        premierLeagueClubs.add(arsenal);
         Random random = new Random();
-        int randomIndexClub = random.nextInt(clubs.size());
-        return clubs.get(randomIndexClub);
+        int randomIndexClub = random.nextInt(premierLeagueClubs.size());
+        return premierLeagueClubs.get(randomIndexClub);
     }
 
     public Club getRandomLaligaClub() {
         Club barcelona = new Club(R.drawable.barcelona_logo, "Barcelona");
         Club realMadrid = new Club(R.drawable.real_madrid_logo, "Real Madrid");
         Club realBetis = new Club(R.drawable.real_betis_logo, "Real Betis");
-        List<Club> clubs = new ArrayList<>();
-        clubs.add(barcelona);
-        clubs.add(realMadrid);
-        clubs.add(realBetis);
+        laligaClubs.add(barcelona);
+        laligaClubs.add(realMadrid);
+        laligaClubs.add(realBetis);
         Random random = new Random();
-        int randomIndex = random.nextInt(clubs.size());
-        return clubs.get(randomIndex);
+        int randomIndex = random.nextInt(laligaClubs.size());
+        return laligaClubs.get(randomIndex);
     }
 
     public Club getRandomBundesligaClub() {
         Club bayernMunchen = new Club(R.drawable.bayern_munchen_logo, "Bayern Munchen");
         Club borussiaDortmund = new Club(R.drawable.borussia_dortmund_logo, "Borussia Dortmund");
         Club bayer = new Club(R.drawable.bayer_logo, "Bayer");
-        List<Club> clubs = new ArrayList<>();
-        clubs.add(bayernMunchen);
-        clubs.add(borussiaDortmund);
-        clubs.add(bayer);
+        bundesligaClubs.add(bayernMunchen);
+        bundesligaClubs.add(borussiaDortmund);
+        bundesligaClubs.add(bayer);
         Random random = new Random();
-        int randomIndex = random.nextInt(clubs.size());
-        return clubs.get(randomIndex);
+        int randomIndex = random.nextInt(bundesligaClubs.size());
+        return bundesligaClubs.get(randomIndex);
     }
 
     public Club getRandomLigue1Club() {
         Club psg = new Club(R.drawable.psg_logo, "Paris-Saint-Germain");
         Club monaco = new Club(R.drawable.monaco_logo, "Monaco");
         Club lyon = new Club(R.drawable.lyon_logo, "Lyon");
-        List<Club> clubs = new ArrayList<>();
-        clubs.add(psg);
-        clubs.add(monaco);
-        clubs.add(lyon);
+        ligue1Clubs.add(psg);
+        ligue1Clubs.add(monaco);
+        ligue1Clubs.add(lyon);
         Random random = new Random();
-        int randomIndex = random.nextInt(clubs.size());
-        return clubs.get(randomIndex);
+        int randomIndex = random.nextInt(ligue1Clubs.size());
+        return ligue1Clubs.get(randomIndex);
     }
     public Club getRandomSeriaAClub() {
         Club milan = new Club(R.drawable.milan_logo, "Milan");
         Club inter = new Club(R.drawable.inter_logo, "Inter");
         Club atalanta = new Club(R.drawable.atalanta_logo, "Atalanta");
-        List<Club> clubs = new ArrayList<>();
-        clubs.add(milan);
-        clubs.add(inter);
-        clubs.add(atalanta);
+        seriaAClubs.add(milan);
+        seriaAClubs.add(inter);
+        seriaAClubs.add(atalanta);
         Random random = new Random();
-        int randomIndex = random.nextInt(clubs.size());
-        return clubs.get(randomIndex);
+        int randomIndex = random.nextInt(seriaAClubs.size());
+        return seriaAClubs.get(randomIndex);
     }
 }
