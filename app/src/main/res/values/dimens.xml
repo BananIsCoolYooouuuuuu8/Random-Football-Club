@@ -5,5 +5,4 @@
     <dimen name="heightImageView">100dp</dimen>
     <dimen name="widthImageView">100dp</dimen>
     <dimen name="heightTextView">100dp</dimen>
-    <dimen name="widthTextView">100dp</dimen>
 </resources>

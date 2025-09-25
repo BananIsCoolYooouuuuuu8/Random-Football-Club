@@ -30,25 +30,29 @@
             android:layout_weight="1"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+<!--            premier league-->
             <LinearLayout
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:id="@+id/premierLeague"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="10dp"
                 android:orientation="horizontal">
 
 
                 <ImageView
                     android:layout_width="@dimen/widthImageView"
                     android:layout_height="@dimen/heightImageView"
-                    android:src="@drawable/premier_league_logo" />
+                    android:src="@drawable/premier_league_logo"
+                    />
 
                 <TextView
-                    android:layout_width="@dimen/widthTextView"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/heightTextView"
                     android:gravity="center"
                     android:text="premier league" />
@@ -56,11 +60,14 @@
 
             </LinearLayout>
 
+<!--            laliga-->
             <LinearLayout
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:id="@+id/laliga"
-                android:layout_width="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp">
+                android:layout_weight="1">
 
                 <ImageView
                     android:layout_width="@dimen/widthImageView"
@@ -68,7 +75,7 @@
                     android:src="@drawable/laliga_logo" />
 
                 <TextView
-                    android:layout_width="@dimen/widthTextView"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/heightTextView"
                     android:gravity="center"
                     android:text="laliga" />
@@ -78,16 +85,19 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+<!--            bundesliga-->
             <LinearLayout
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:id="@+id/bundesliga"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1">
 
                 <ImageView
                     android:layout_width="@dimen/widthImageView"
@@ -95,18 +105,21 @@
                     android:src="@drawable/bundesliga_logo" />
 
                 <TextView
-                    android:layout_width="@dimen/widthTextView"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/heightTextView"
                     android:gravity="center"
                     android:text="bundesliga" />
             </LinearLayout>
 
+<!--            ligue 1-->
             <LinearLayout
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:id="@+id/ligue1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1">
 
                 <ImageView
                     android:layout_width="@dimen/widthImageView"
@@ -114,7 +127,7 @@
                     android:src="@drawable/ligue1_logo" />
 
                 <TextView
-                    android:layout_width="@dimen/widthTextView"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/heightTextView"
                     android:gravity="center"
                     android:text="ligue 1" />
@@ -122,7 +135,9 @@
 
         </LinearLayout>
 
+<!--        seria A-->
         <LinearLayout
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:id="@+id/seriaA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,7 +150,7 @@
                 android:src="@drawable/seriaa_logo" />
 
             <TextView
-                android:layout_width="@dimen/widthTextView"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/heightTextView"
                 android:gravity="center"
                 android:text="seria A" />
